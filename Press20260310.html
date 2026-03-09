@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head>
+<html lang="en"><head>
 <script src="Press20260310_files/libs/clipboard/clipboard.min.js"></script>
 <script src="Press20260310_files/libs/quarto-html/tabby.min.js"></script>
 <script src="Press20260310_files/libs/quarto-html/popper.min.js"></script>
@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Marcel Ferreira">
-  <meta name="dcterms.date" content="2026-03-06">
+  <meta name="dcterms.date" content="2026-03-09">
   <title>CRISPR-Cas9-Targeted Nanopore Sequencing for STR Typing</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -142,15 +142,14 @@ Marcel Ferreira
 </div>
 </div>
 
-  <p class="date">2026-03-06</p>
+  <p class="date">2026-03-09</p>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
 
 <img data-src="paper01.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="background" class="slide level2 smaller">
-<h2>Background</h2>
-<p><strong>What is STR?</strong></p>
+<section id="what-is-str" class="slide level2 smaller">
+<h2><strong>What is STR?</strong></h2>
 <ul>
 <li><p><u>Short Tandem Repeats</u> (STRs) are genetic markers widely used in human identification and forensic investigations;</p></li>
 <li><p>Selected for high population polymorphism, low mutation rate, and robust amplification;</p></li>
@@ -167,14 +166,51 @@ Marcel Ferreira
 </figure>
 </div>
 </section>
-<section id="background-1" class="slide level2">
-<h2>Background</h2>
-<p><strong>Limitations of conventional PCR:</strong></p>
+<section id="limitations-of-conventional-pcr" class="slide level2">
+<h2><strong>Limitations of conventional PCR</strong></h2>
 <ul>
 <li><p>Generation of stutters (amplification artifacts);</p></li>
 <li><p>Failure in long fragments (&gt;5 kbp) and regions with high GC content;</p></li>
 <li><p>Multiple PCR steps introduce bias and errors.</p></li>
 </ul>
+</section>
+<section id="why-avoid-pcr-for-str-enrichment" class="slide level2">
+<h2>Why avoid PCR for STR enrichment?</h2>
+<ul>
+<li>PCR amplification of forensic STRs causes <em>stutter</em> artifacts that affect genotyping accuracy and sensitivity;</li>
+<li>Investigating a PCR-free alternative is therefore scientifically motivated;</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong><em>CRISPR-Cas9 + sgRNA as an enrichment tool;</em></strong></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Fragments are sequenced by MPS or nanopore — <u><strong>no amplification needed</strong></u>;</li>
+</ul>
+</div>
+</section>
+<section id="what-is-nanopore-sequencing" class="slide level2">
+<h2>What is nanopore sequencing?</h2>
+<ul>
+<li><p>A <u><strong>single-molecule</strong></u> sequencing technology — reads individual DNA strands directly;</p></li>
+<li><p>No amplification required at the sequencing step;</p></li>
+<li><p>Capable of long reads, preserving native DNA modifications (e.g., methylation);</p></li>
+</ul>
+</section>
+<section id="nanopore-forensic-strs" class="slide level2">
+<h2>Nanopore + forensic STRs</h2>
+<ul>
+<li><p>Several studies have shown nanopore can profile forensic STRs — but still relying on PCR amplification beforehand;</p></li>
+<li><p>Giesselmann et al.&nbsp;(2019) demonstrated this combination for <strong>long pathogenic STRs</strong> (&gt;2,599 bp) and CpG methylation detection — without PCR;</p></li>
+<li><p>But forensic STR profiling demands <strong>high precision</strong>, and no study had yet applied this approach to forensic loci;</p></li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p><strong>This study fills that gap</strong> — first to combine CRISPR-Cas9 enrichment with nanopore sequencing specifically for forensic STR typing.</p>
+</blockquote>
+</div>
 </section>
 <section id="objective" class="slide level2">
 <h2>Objective</h2>
@@ -185,11 +221,11 @@ Marcel Ferreira
 <section id="how-does-cas9-seq-work" class="slide level2">
 <h2>How Does Cas9-seq Work?</h2>
 <p><strong>PCR-free workflow:</strong></p>
-<p>1. Dephosphorylation of genomic DNA</p>
-<p>2. RNP complex assembly (sgRNA + Cas9 protein)</p>
-<p>3. Cas9 cleavage at target sites</p>
-<p>4. dA-tailing of cleaved ends</p>
-<p>5. Sequencing adapter ligation</p>
+<p>1. Dephosphorylation of genomic DNA;</p>
+<p>2. RNP complex assembly (sgRNA + Cas9 protein);</p>
+<p>3. Cas9 cleavage at target sites;</p>
+<p>4. dA-tailing of cleaved ends;</p>
+<p>5. Sequencing adapter ligation.</p>
 </section>
 <section id="how-does-cas9-seq-work-1" class="slide level2">
 <h2>How Does Cas9-seq Work?</h2>
@@ -243,14 +279,14 @@ Marcel Ferreira
 <section id="enrichment-of-target-regions" class="slide level2">
 <h2>Enrichment of Target Regions</h2>
 <ul>
-<li>Target regions represent only <strong>0.0005%</strong> of the human genome</li>
+<li>Target regions represent only <strong>0.0005%</strong> of the human genome;</li>
 <li>Cas9-seq achieved average enrichment of:
 <ul>
-<li><strong>643×</strong> in sample NA12878</li>
-<li><strong>468×</strong> in sample 293T</li>
+<li><strong>643×</strong> in sample NA12878;</li>
+<li><strong>468×</strong> in sample 293T;</li>
 </ul></li>
-<li>Average sequencing depth: 212× (NA12878) and 135× (293T)</li>
-<li>Outperforms previous similar methods (25×, 10.7×, and 7×)</li>
+<li>Average sequencing depth: 212× (NA12878) and 135× (293T);</li>
+<li>Outperforms previous similar methods (25×, 10.7×, and 7×);</li>
 </ul>
 </section>
 <section id="enrichment-of-target-regions-1" class="slide level2">
@@ -262,17 +298,17 @@ Marcel Ferreira
 <ul>
 <li>Cas9-seq showed <strong>far superior</strong> forward/reverse strand balance compared to amplicon-seq:
 <ul>
-<li>Cas9-seq: <strong>82.86% ± 13.28%</strong></li>
-<li>Amplicon-seq: <strong>33.18% ± 8.14%</strong></li>
+<li>Cas9-seq: <strong>82.86% ± 13.28%</strong>;</li>
+<li>Amplicon-seq: <strong>33.18% ± 8.14%</strong>;</li>
 </ul></li>
-<li>Statistically significant difference (one-way ANOVA, <strong>p = 0.000122</strong>)</li>
-<li>Lower strand bias may improve genotyping reliability</li>
+<li>Statistically significant difference (one-way ANOVA, <strong>p = 0.000122</strong>);</li>
+<li>Lower strand bias may improve genotyping reliability;</li>
 </ul>
 </section>
 <section id="genotyping-accuracy" class="slide level2">
 <h2>Genotyping Accuracy</h2>
 <ul>
-<li>Both methods had <strong>identical accuracy: 78.57%</strong></li>
+<li>Both methods had <strong>identical accuracy: 78.57%</strong>;</li>
 <li>Each method produced <strong>3 genotyping errors</strong>:</li>
 </ul>
 <table class="caption-top">
@@ -294,7 +330,7 @@ Marcel Ferreira
 </tbody>
 </table>
 <ul>
-<li>Errors associated with alleles showing relatively high read frequencies (stutter-like pattern)</li>
+<li>Errors associated with alleles showing relatively high read frequencies (stutter-like pattern);</li>
 </ul>
 </section>
 <section id="genotyping-accuracy-1" class="slide level2">
@@ -306,19 +342,19 @@ Marcel Ferreira
 <ul>
 <li>Cas9-seq showed <strong>higher noise</strong> at loci containing homopolymers:
 <ul>
-<li><strong>FGA</strong>: complex repeat structure with a 6-mer polyA region</li>
-<li><strong>D18S51</strong>: [AGAA]n structure with 3-mer and 5-mer polyA regions</li>
+<li><strong>FGA</strong>: complex repeat structure with a 6-mer polyA region;</li>
+<li><strong>D18S51</strong>: [AGAA]n structure with 3-mer and 5-mer polyA regions;</li>
 </ul></li>
-<li>Nanopore sequencing is inherently error-prone in homopolymer regions</li>
-<li>Amplicon-seq produced cleaner reads (fewer indels and substitutions)</li>
+<li>Nanopore sequencing is inherently error-prone in homopolymer regions;</li>
+<li>Amplicon-seq produced cleaner reads (fewer indels and substitutions);</li>
 </ul>
 </section>
 <section id="read-noise-1" class="slide level2">
 <h2>Read Noise</h2>
 
 <img data-src="paper06a.png" width="1300" class="r-stretch quarto-figure-center"><p class="caption">Visualization of reads aligned to FGA (A and B) and D18S51 (C and D), comparing noise levels between Cas9-seq and amplicon-seq in the NA12878 sample.</p></section>
-<section id="reads-noise" class="slide level2">
-<h2>Reads noise</h2>
+<section id="read-noise-2" class="slide level2">
+<h2>Read Noise</h2>
 
 <img data-src="paper06b.png" width="1300" class="r-stretch quarto-figure-center"><p class="caption">Visualization of reads aligned to FGA (A and B) and D18S51 (C and D), comparing noise levels between Cas9-seq and amplicon-seq in the NA12878 sample</p></section>
 <section id="false-positive-snps" class="slide level2">
@@ -326,36 +362,36 @@ Marcel Ferreira
 <ul>
 <li><strong>Amplicon-seq introduced 3 false-positive SNPs</strong> (confirmed by Sanger sequencing):
 <ul>
-<li>chr5:149455858 — C→T</li>
-<li>chr11:2192265 — C→A</li>
-<li>chr12:6093102 — T→A/T (heterozygous)</li>
+<li>chr5:149455858 — C→T;</li>
+<li>chr11:2192265 — C→A;</li>
+<li>chr12:6093102 — T→A/T (heterozygous);</li>
 </ul></li>
-<li><strong>Cas9-seq introduced no false-positive SNPs</strong></li>
-<li>Mutations arising during initial PCR amplification are erroneously interpreted as true variants</li>
+<li><strong>Cas9-seq introduced no false-positive SNPs</strong>;</li>
+<li>Mutations arising during initial PCR amplification are erroneously interpreted as true variants;</li>
 </ul>
 </section>
 <section id="study-limitations" class="slide level2">
 <h2>Study Limitations</h2>
 <ul>
-<li>Only <strong>2 samples</strong> tested (cell lines, not real forensic samples)</li>
-<li>Only <strong>7 loci</strong> out of 20 CODIS core STRs evaluated</li>
-<li><strong>High DNA input required</strong> (minimum 3 µg) — impractical for many forensic samples (dried blood, degraded saliva)</li>
-<li><strong>Methylation analysis</strong> was not performed, despite being one of the method’s key promises</li>
+<li>Only <strong>2 samples</strong> tested (cell lines, not real forensic samples);</li>
+<li>Only <strong>7 loci</strong> out of 20 CODIS core STRs evaluated;</li>
+<li><strong>High DNA input required</strong> (minimum 3 µg) — impractical for many forensic samples (dried blood, degraded saliva);</li>
+<li><strong>Methylation analysis</strong> was not performed, despite being one of the method’s key promises;</li>
 </ul>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
 <p><strong>Where Cas9-seq performed well:</strong></p>
 <ul>
-<li>✅ High target enrichment (&gt;500× on average)</li>
-<li>✅ Excellent forward/reverse strand balance</li>
-<li>✅ No false-positive SNPs introduced</li>
+<li>✅ High target enrichment (&gt;500× on average);</li>
+<li>✅ Excellent forward/reverse strand balance;</li>
+<li>✅ No false-positive SNPs introduced;</li>
 </ul>
 <p><strong>Where Cas9-seq fell short:</strong></p>
 <ul>
-<li>❌ Genotyping accuracy identical to amplicon-seq (78.57%)</li>
-<li>❌ Higher read noise in homopolymer-containing regions</li>
-<li>❌ Requires a large DNA input amount</li>
+<li>❌ Genotyping accuracy identical to amplicon-seq (78.57%);</li>
+<li>❌ Higher read noise in homopolymer-containing regions;</li>
+<li>❌ Requires a large DNA input amount;</li>
 </ul>
 </section>
 <section id="conclusion-1" class="slide level2">
@@ -682,12 +718,12 @@ Marcel Ferreira
           // flash "checked"
           button.classList.add('code-copy-button-checked');
           var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copiada");
+          button.setAttribute("title", "Copied!");
           let tooltip;
           if (window.bootstrap) {
             button.setAttribute("data-bs-toggle", "tooltip");
             button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copiada");
+            button.setAttribute("data-bs-title", "Copied!");
             tooltip = new bootstrap.Tooltip(button, 
               { trigger: "manual", 
                 customClass: "code-copy-button-tooltip",

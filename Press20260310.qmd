@@ -19,7 +19,7 @@ format:
 revealjs-plugins:
   - pointer
 editor: visual
-lang: pt-BR
+# lang: pt-BR
 slide-number: c/t
 engine: knitr
 ---
@@ -28,9 +28,7 @@ engine: knitr
 
 ![](paper01.png){fig-align="center"}
 
-## Background {.smaller}
-
-**What is STR?**
+## **What is STR?** {.smaller}
 
 -   [Short Tandem Repeats]{.underline} (STRs) are genetic markers widely used in human identification and forensic investigations;
 
@@ -40,15 +38,46 @@ engine: knitr
 
 [![STR example.](https://ars.els-cdn.com/content/image/3-s2.0-B978012804124600001X-f01-17-9780128041246.jpg){fig-align="center" width="672"}](https://ars.els-cdn.com/content/image/3-s2.0-B978012804124600001X-f01-17-9780128041246.jpg)
 
-## Background
-
-**Limitations of conventional PCR:**
+## **Limitations of conventional PCR**
 
 -   Generation of stutters (amplification artifacts);
 
 -   Failure in long fragments (\>5 kbp) and regions with high GC content;
 
 -   Multiple PCR steps introduce bias and errors.
+
+## Why avoid PCR for STR enrichment?
+
+-   PCR amplification of forensic STRs causes *stutter* artifacts that affect genotyping accuracy and sensitivity;
+-   Investigating a PCR-free alternative is therefore scientifically motivated;
+
+. . .
+
+-   ***CRISPR-Cas9 + sgRNA as an enrichment tool;***
+
+. . .
+
+-   Fragments are sequenced by MPS or nanopore --- [**no amplification needed**]{.underline};
+
+## What is nanopore sequencing?
+
+-   A [**single-molecule**]{.underline} sequencing technology --- reads individual DNA strands directly;
+
+-   No amplification required at the sequencing step;
+
+-   Capable of long reads, preserving native DNA modifications (e.g., methylation);
+
+## Nanopore + forensic STRs
+
+-   Several studies have shown nanopore can profile forensic STRs --- but still relying on PCR amplification beforehand;
+
+-   Giesselmann et al. (2019) demonstrated this combination for **long pathogenic STRs** (\>2,599 bp) and CpG methylation detection --- without PCR;
+
+-   But forensic STR profiling demands **high precision**, and no study had yet applied this approach to forensic loci;
+
+. . .
+
+> **This study fills that gap** --- first to combine CRISPR-Cas9 enrichment with nanopore sequencing specifically for forensic STR typing.
 
 ## Objective
 
@@ -58,15 +87,15 @@ engine: knitr
 
 **PCR-free workflow:**
 
-1\. Dephosphorylation of genomic DNA
+1\. Dephosphorylation of genomic DNA;
 
-2\. RNP complex assembly (sgRNA + Cas9 protein)
+2\. RNP complex assembly (sgRNA + Cas9 protein);
 
-3\. Cas9 cleavage at target sites
+3\. Cas9 cleavage at target sites;
 
-4\. dA-tailing of cleaved ends
+4\. dA-tailing of cleaved ends;
 
-5\. Sequencing adapter ligation
+5\. Sequencing adapter ligation.
 
 ## How Does Cas9-seq Work?
 
@@ -86,12 +115,12 @@ engine: knitr
 
 ## Enrichment of Target Regions
 
--   Target regions represent only **0.0005%** of the human genome
+-   Target regions represent only **0.0005%** of the human genome;
 -   Cas9-seq achieved average enrichment of:
-    -   **643×** in sample NA12878
-    -   **468×** in sample 293T
--   Average sequencing depth: 212× (NA12878) and 135× (293T)
--   Outperforms previous similar methods (25×, 10.7×, and 7×)
+    -   **643×** in sample NA12878;
+    -   **468×** in sample 293T;
+-   Average sequencing depth: 212× (NA12878) and 135× (293T);
+-   Outperforms previous similar methods (25×, 10.7×, and 7×);
 
 ## Enrichment of Target Regions
 
@@ -100,14 +129,14 @@ engine: knitr
 ## Strand Balance
 
 -   Cas9-seq showed **far superior** forward/reverse strand balance compared to amplicon-seq:
-    -   Cas9-seq: **82.86% ± 13.28%**
-    -   Amplicon-seq: **33.18% ± 8.14%**
--   Statistically significant difference (one-way ANOVA, **p = 0.000122**)
--   Lower strand bias may improve genotyping reliability
+    -   Cas9-seq: **82.86% ± 13.28%**;
+    -   Amplicon-seq: **33.18% ± 8.14%**;
+-   Statistically significant difference (one-way ANOVA, **p = 0.000122**);
+-   Lower strand bias may improve genotyping reliability;
 
 ## Genotyping Accuracy
 
--   Both methods had **identical accuracy: 78.57%**
+-   Both methods had **identical accuracy: 78.57%**;
 -   Each method produced **3 genotyping errors**:
 
 | Method       | Loci with errors                         |
@@ -115,7 +144,7 @@ engine: knitr
 | Cas9-seq     | D18S51 (NA12878 and 293T) and vWA (293T) |
 | Amplicon-seq | FGA (both samples) and vWA (293T)        |
 
--   Errors associated with alleles showing relatively high read frequencies (stutter-like pattern)
+-   Errors associated with alleles showing relatively high read frequencies (stutter-like pattern);
 
 ## Genotyping Accuracy
 
@@ -124,48 +153,48 @@ engine: knitr
 ## Read Noise
 
 -   Cas9-seq showed **higher noise** at loci containing homopolymers:
-    -   **FGA**: complex repeat structure with a 6-mer polyA region
-    -   **D18S51**: \[AGAA\]n structure with 3-mer and 5-mer polyA regions
--   Nanopore sequencing is inherently error-prone in homopolymer regions
--   Amplicon-seq produced cleaner reads (fewer indels and substitutions)
+    -   **FGA**: complex repeat structure with a 6-mer polyA region;
+    -   **D18S51**: \[AGAA\]n structure with 3-mer and 5-mer polyA regions;
+-   Nanopore sequencing is inherently error-prone in homopolymer regions;
+-   Amplicon-seq produced cleaner reads (fewer indels and substitutions);
 
 ## Read Noise
 
 ![Visualization of reads aligned to FGA (A and B) and D18S51 (C and D), comparing noise levels between Cas9-seq and amplicon-seq in the NA12878 sample.](paper06a.png){fig-align="center" width="1300"}
 
-## Reads noise
+## Read Noise
 
 ![Visualization of reads aligned to FGA (A and B) and D18S51 (C and D), comparing noise levels between Cas9-seq and amplicon-seq in the NA12878 sample](paper06b.png){fig-align="center" width="1300"}
 
 ## False-Positive SNPs
 
 -   **Amplicon-seq introduced 3 false-positive SNPs** (confirmed by Sanger sequencing):
-    -   chr5:149455858 --- C→T
-    -   chr11:2192265 --- C→A
-    -   chr12:6093102 --- T→A/T (heterozygous)
--   **Cas9-seq introduced no false-positive SNPs**
--   Mutations arising during initial PCR amplification are erroneously interpreted as true variants
+    -   chr5:149455858 --- C→T;
+    -   chr11:2192265 --- C→A;
+    -   chr12:6093102 --- T→A/T (heterozygous);
+-   **Cas9-seq introduced no false-positive SNPs**;
+-   Mutations arising during initial PCR amplification are erroneously interpreted as true variants;
 
 ## Study Limitations
 
--   Only **2 samples** tested (cell lines, not real forensic samples)
--   Only **7 loci** out of 20 CODIS core STRs evaluated
--   **High DNA input required** (minimum 3 µg) --- impractical for many forensic samples (dried blood, degraded saliva)
--   **Methylation analysis** was not performed, despite being one of the method's key promises
+-   Only **2 samples** tested (cell lines, not real forensic samples);
+-   Only **7 loci** out of 20 CODIS core STRs evaluated;
+-   **High DNA input required** (minimum 3 µg) --- impractical for many forensic samples (dried blood, degraded saliva);
+-   **Methylation analysis** was not performed, despite being one of the method's key promises;
 
 ## Conclusion
 
 **Where Cas9-seq performed well:**
 
--   ✅ High target enrichment (\>500× on average)
--   ✅ Excellent forward/reverse strand balance
--   ✅ No false-positive SNPs introduced
+-   ✅ High target enrichment (\>500× on average);
+-   ✅ Excellent forward/reverse strand balance;
+-   ✅ No false-positive SNPs introduced;
 
 **Where Cas9-seq fell short:**
 
--   ❌ Genotyping accuracy identical to amplicon-seq (78.57%)
--   ❌ Higher read noise in homopolymer-containing regions
--   ❌ Requires a large DNA input amount
+-   ❌ Genotyping accuracy identical to amplicon-seq (78.57%);
+-   ❌ Higher read noise in homopolymer-containing regions;
+-   ❌ Requires a large DNA input amount;
 
 ## Conclusion
 
