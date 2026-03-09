@@ -22,6 +22,7 @@ editor: visual
 # lang: pt-BR
 slide-number: c/t
 engine: knitr
+bibliography: references.bib
 ---
 
 ## 
@@ -53,7 +54,7 @@ engine: knitr
 
 . . .
 
--   ***CRISPR-Cas9 + sgRNA as an enrichment tool;***
+-   ***CRISPR-Cas9 as an enrichment tool;***
 
 . . .
 
@@ -120,7 +121,7 @@ engine: knitr
     -   **643×** in sample NA12878;
     -   **468×** in sample 293T;
 -   Average sequencing depth: 212× (NA12878) and 135× (293T);
--   Outperforms previous similar methods (25×, 10.7×, and 7×);
+-   Outperforms previous similar methods (25× [@iyer2022], 10.7× [@wallace2021], and 7× [@zhao2024]);
 
 ## Enrichment of Target Regions
 
