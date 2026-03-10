@@ -200,3 +200,5 @@ bibliography: references.bib
 ## Conclusion
 
 > **The PCR-free Cas9-seq approach is not currently recommended for forensic STR genotyping. Promising future directions include methylation detection, microhaplotype analysis, and larger genomic markers.**
+
+## References
